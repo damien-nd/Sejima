@@ -31,7 +31,7 @@ open class MUHorizontalPager: MUNibView {
     @IBOutlet public weak var delegate: MUHorizontalPagerDelegate? // swiftlint:disable:this private_outlet strong_iboutlet line_length
 
     /// The pager can interact with a page control.
-    open weak var pageControl: MUPageControl? {
+    @IBOutlet public weak var pageControl: MUPageControl? { // swiftlint:disable:this private_outlet strong_iboutlet line_length
         didSet {
             pageControl?.numberOfPages = numberOfPages
             pageControl?.set(page: currentIndex, animated: false)
