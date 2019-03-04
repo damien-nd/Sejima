@@ -171,12 +171,12 @@ open class MUPageControl: UIControl {
     }
 
     private func update(for page: Int) {
-        guard let targetX = inactive.first?.frame.origin.x, numberOfPages > 0 else {
-                return
+        guard page >= 0 && page <= numberOfPages - 1 else {
+            currentPage = max(0, min(currentPage, numberOfPages - 1))
+            return
         }
 
-        guard page >= 0 && page <= numberOfPages - 1 else {
-                currentPage = max(0, min(currentPage, numberOfPages - 1))
+        guard let targetX = inactive.first?.frame.origin.x, numberOfPages > 0 else {
                 return
         }
 
